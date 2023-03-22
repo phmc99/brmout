@@ -27,15 +27,18 @@ const NavBar = () => {
   return (
     <Box>
       <Flex
-        bg={useColorModeValue('white', 'gray.800')}
+        bg={useColorModeValue(['white', 'blackAlpha.300'], 'gray.800')}
         color={useColorModeValue('gray.600', 'white')}
         minH={'60px'}
         py={{ base: 2 }}
         px={{ base: 4 }}
         borderBottom={1}
         borderStyle={'solid'}
-        borderColor={useColorModeValue('gray.200', 'gray.900')}
+        borderColor={useColorModeValue(['gray.200', 'transparent'], 'gray.900')}
         align={'center'}
+        position={['sticky', 'absolute']}
+        w={'100%'}
+        boxShadow={['none', '0px 2px 5px 0px rgba(0,0,0,0.2)']}
       >
         <Flex
           flex={{ base: 1, md: 'auto' }}
@@ -51,8 +54,8 @@ const NavBar = () => {
             aria-label={'Toggle Navigation'}
           />
         </Flex>
-        <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-          <Image src="./images/logo-brmout.png" alt="Logo" w={200} />
+        <Flex flex={{ base: 1 }} justify={{ base: 'end', md: 'center' }}>
+          <Image src="./images/icon-brmout.png" alt="logo" w={'60px'} />
 
           <Flex
             display={{ base: 'none', md: 'flex' }}
@@ -73,8 +76,8 @@ const NavBar = () => {
 };
 
 const DesktopNav = () => {
-  const linkColor = useColorModeValue('gray.600', 'gray.200');
-  const linkHoverColor = useColorModeValue('gray.800', 'white');
+  const linkColor = useColorModeValue(['gray.600', 'gray.700'], 'gray.200');
+  const linkHoverColor = useColorModeValue(['gray.800', 'gray.600'], 'white');
   const popoverContentBgColor = useColorModeValue('white', 'gray.800');
 
   return (
