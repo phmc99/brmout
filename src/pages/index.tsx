@@ -1,12 +1,17 @@
 import Head from 'next/head';
+import NavBar from '../components/NavBar';
 
 export default function Home() {
   return (
-    <div>
+    <>
       <Head>
-        <title>Next App by @phmc99</title>
-        <meta name="description" content="Next App by @phmc99" />
+        <title>BRmout Engenharia e Segurança do trabalho</title>
+        <meta
+          name="description"
+          content="BRmout consultoria de engenharia e segurança do trabalho"
+        />
       </Head>
-    </div>
+      <NavBar />
+    </>
   );
 }
