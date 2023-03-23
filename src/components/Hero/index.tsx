@@ -1,57 +1,42 @@
-import {
-  Stack,
-  Flex,
-  Button,
-  Text,
-  VStack,
-  useBreakpointValue,
-  Image,
-} from '@chakra-ui/react';
+import { ChevronDownIcon } from '@chakra-ui/icons';
+import { Button, Flex, Image, Stack, Text } from '@chakra-ui/react';
 
-const Hero = () => {
+function Hero() {
   return (
-    <Flex
-      w={'full'}
-      h={'100vh'}
-      backgroundImage={'url(./images/brmoutbg.jpg)'}
-      backgroundSize={'cover'}
-      backgroundPosition={'center center'}
-    >
-      <VStack
-        w={'full'}
-        justify={'center'}
-        px={useBreakpointValue({ base: 4, md: 8 })}
-        bgGradient={'linear(to-r, whiteAlpha.500, whiteAlpha.700)'}
-      >
-        <Stack maxW={'2xl'} align={'center'} textAlign={'center'} spacing={6}>
-          <Image src="./images/logo-brmout.png" w={400} />
-          <Text
-            color={'white'}
-            fontWeight={700}
-            lineHeight={1.2}
-            fontSize={useBreakpointValue({ base: '3xl', md: '4xl' })}
-            textShadow={'1px 1px 5px rgba(0,0,0,0.7 )'}
-          >
-            Engenharia e segurança do trabalho para um ambiente mais seguro.
+    <Stack minH={'100vh'} direction={{ base: 'column', md: 'row' }}>
+      <Flex p={8} flex={1} align={'center'} justify={'center'}>
+        <Stack spacing={6} w={'full'} maxW={'lg'}>
+          <Image src={'./images/logo-brmout.png'} />
+
+          <Text fontSize={{ base: 'md', lg: 'lg' }} color={'gray.500'}>
+            Consultoria de Engenharia e Segurança do trabalho para fazer do seu
+            projeto o mais seguro.
           </Text>
-          <Stack direction={'row'}>
-            <Button
-              bg={'#245689'}
-              color={'gray.100'}
-              rounded={'full'}
-              size={'lg'}
-              _hover={{
-                filter: 'brightness(1.15)',
-              }}
-              transition={'.2s all'}
-            >
-              Conheça mais!
-            </Button>
-          </Stack>
+          <Button
+            rightIcon={<ChevronDownIcon boxSize={6} />}
+            rounded={'full'}
+            size={'md'}
+            flexDirection={'column'}
+            alignItems="center"
+            variant={'link'}
+            _hover={{
+              textDecoration: 'none',
+              color: 'blue.500',
+            }}
+          >
+            Saiba mais
+          </Button>
         </Stack>
-      </VStack>
-    </Flex>
+      </Flex>
+      <Flex flex={1}>
+        <Image
+          alt={'Login Image'}
+          objectFit={'cover'}
+          src={'./images/brmoutbg.jpg'}
+        />
+      </Flex>
+    </Stack>
   );
-};
+}
 
 export default Hero;
