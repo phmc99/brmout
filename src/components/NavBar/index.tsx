@@ -27,7 +27,7 @@ const NavBar = () => {
   return (
     <Box>
       <Flex
-        bg={useColorModeValue(['white', 'blackAlpha.300'], 'gray.800')}
+        bg={useColorModeValue(['white', 'whiteAlpha.100'], 'gray.800')}
         color={useColorModeValue('gray.600', 'white')}
         minH={'60px'}
         py={{ base: 2 }}
@@ -38,7 +38,7 @@ const NavBar = () => {
         align={'center'}
         position={['sticky', 'absolute']}
         w={'100%'}
-        boxShadow={['none', '0px 2px 5px 0px rgba(0,0,0,0.2)']}
+        boxShadow={['none', '0px 2px 5px 0px rgba(0, 0, 0, 0.05)']}
       >
         <Flex
           flex={{ base: 1, md: 'auto' }}
@@ -76,7 +76,7 @@ const NavBar = () => {
 };
 
 const DesktopNav = () => {
-  const linkColor = useColorModeValue(['gray.600', 'gray.700'], 'gray.200');
+  const linkColor = useColorModeValue(['gray.600', 'gray.500'], 'gray.200');
   const linkHoverColor = useColorModeValue(['gray.800', 'gray.600'], 'white');
   const popoverContentBgColor = useColorModeValue('white', 'gray.800');
 
@@ -132,13 +132,13 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
       display={'block'}
       p={2}
       rounded={'md'}
-      _hover={{ bg: useColorModeValue('green.50', 'gray.900') }}
+      _hover={{ bg: useColorModeValue('blue.50', 'gray.900') }}
     >
       <Stack direction={'row'} align={'center'}>
         <Box>
           <Text
             transition={'all .3s ease'}
-            _groupHover={{ color: 'green.400' }}
+            _groupHover={{ color: 'blue.400' }}
             fontWeight={500}
           >
             {label}
@@ -154,7 +154,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
           align={'center'}
           flex={1}
         >
-          <Icon color={'green.400'} w={5} h={5} as={ChevronRightIcon} />
+          <Icon color={'blue.400'} w={5} h={5} as={ChevronRightIcon} />
         </Flex>
       </Stack>
     </Link>
