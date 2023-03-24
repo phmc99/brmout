@@ -20,14 +20,35 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from '@chakra-ui/icons';
+import { useEffect, useState } from 'react';
 
 const NavBar = () => {
-  const { isOpen, onToggle } = useDisclosure();
+  const { isOpen, onToggle, onClose } = useDisclosure();
+
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    function handleScroll() {
+      if (window.pageYOffset > 0) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+        onClose();
+      }
+    }
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [onClose]);
 
   return (
     <Box>
       <Flex
-        bg={useColorModeValue(['white', 'whiteAlpha.100'], 'gray.800')}
+        bg={useColorModeValue(
+          ['white', scrolled ? 'white' : 'whiteAlpha.100'],
+          'gray.800',
+        )}
+        transition={['none', scrolled ? '.5s all' : '.2s all']}
+        visibility={[scrolled ? 'visible' : 'hidden', 'visible']}
         color={useColorModeValue('gray.600', 'white')}
         minH={'60px'}
         py={{ base: 2 }}
@@ -36,9 +57,10 @@ const NavBar = () => {
         borderStyle={'solid'}
         borderColor={useColorModeValue(['gray.200', 'transparent'], 'gray.900')}
         align={'center'}
-        position={['sticky', 'absolute']}
+        position={'fixed'}
         w={'100%'}
         boxShadow={['none', '0px 2px 5px 0px rgba(0, 0, 0, 0.05)']}
+        zIndex={3}
       >
         <Flex
           flex={{ base: 1, md: 'auto' }}
@@ -166,7 +188,11 @@ const MobileNav = () => {
     <Stack
       bg={useColorModeValue('white', 'gray.800')}
       p={4}
+      w={'full'}
       display={{ md: 'none' }}
+      position={'fixed'}
+      top={'11%'}
+      zIndex={3}
     >
       {NAV_ITEMS.map(navItem => (
         <MobileNavItem key={navItem.label} {...navItem} />
