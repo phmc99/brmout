@@ -1,6 +1,8 @@
 import Head from 'next/head';
 import NavBar from '../components/NavBar';
 import Hero from '../components/Hero';
+import About from '../components/About';
+import People from '../components/People';
 
 export default function Home() {
   return (
@@ -14,6 +16,8 @@ export default function Home() {
       </Head>
       <NavBar />
       <Hero />
+      <About />
+      <People />
     </>
   );
 }
