@@ -17,7 +17,7 @@ const People = () => {
       spacing={{ base: 2, md: 4 }}
       align={'center'}
       direction={'column'}
-      h={['100vh', '50vh']}
+      h={['140vh', '80vh']}
     >
       <Heading>Nosso time</Heading>
       <Text
