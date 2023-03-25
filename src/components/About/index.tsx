@@ -10,7 +10,7 @@ const About = () => {
       spacing={{ base: 8, md: 10 }}
       align={'center'}
       direction={'column'}
-      h={['100vh', '50vh']}
+      h={['90vh', '50vh']}
     >
       <Heading>Sobre</Heading>
       <Text
