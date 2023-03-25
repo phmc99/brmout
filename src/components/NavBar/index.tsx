@@ -202,14 +202,17 @@ const MobileNav = () => {
 };
 
 const MobileNavItem = ({ label, children, href }: NavItem) => {
-  const { isOpen, onToggle } = useDisclosure();
+  const {
+    isOpen: isOpenMobileNavItem,
+    onToggle: onToggleMobileNavItem,
+  } = useDisclosure();
 
   return (
-    <Stack spacing={4} onClick={children && onToggle}>
+    <Stack spacing={4} onClick={children && onToggleMobileNavItem}>
       <Flex
         py={2}
         as={Link}
-        href={href ?? '#'}
+        href={href && href}
         justify={'space-between'}
         align={'center'}
         _hover={{
@@ -226,14 +229,18 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
           <Icon
             as={ChevronDownIcon}
             transition={'all .25s ease-in-out'}
-            transform={isOpen ? 'rotate(180deg)' : ''}
+            transform={isOpenMobileNavItem ? 'rotate(180deg)' : ''}
             w={6}
             h={6}
           />
         )}
       </Flex>
 
-      <Collapse in={isOpen} animateOpacity style={{ marginTop: '0!important' }}>
+      <Collapse
+        in={isOpenMobileNavItem}
+        animateOpacity
+        style={{ marginTop: '0!important' }}
+      >
         <Stack
           mt={2}
           pl={4}
