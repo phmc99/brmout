@@ -85,7 +85,7 @@ const Features = () => {
               </Box>
               <VStack align={'start'}>
                 <Text fontWeight={600}>{feature.title}</Text>
-                <Text display={['none', 'box']} color={'gray.600'}>
+                <Text display={['none', 'flex']} color={'gray.600'}>
                   {feature.text}
                 </Text>
               </VStack>
